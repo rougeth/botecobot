@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ipdb = "*"
+ipython = "*"
+black = "*"
+pytest = "*"
+
+[packages]
+"discord.py" = "*"
+loguru = "*"
+python-slugify = "*"
+python-decouple = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
