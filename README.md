@@ -1,7 +1,7 @@
 # 🍻 botecobot
 O Garçom da Python Brasil 2020
 
-![badge](https://img.shields.io/static/v1?label=Discord&message=Add%20to%20Server&color=blueviolet&logo=discord)
+[![badge](https://img.shields.io/static/v1?label=Discord&message=Add%20to%20Server&color=blueviolet&logo=discord)](https://discord.com/api/oauth2/authorize?client_id=773865304479629323&permissions=3152&scope=bot)
 
 #### Como usar?
 
