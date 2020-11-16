@@ -1,8 +1,7 @@
 from datetime import datetime
 
 import discord
-from discord.ext import commands
-from discord.ext import tasks
+from discord.ext import commands, tasks
 from loguru import logger
 from slugify import slugify
 from decouple import config
@@ -31,12 +30,22 @@ async def on_voice_state_update(member, before, after):
 
 
 @bot.command()
-async def construir_boteco(ctx, *args):
+@commands.has_permissions(manage_guild=True)
+async def boteco(ctx, cmd, *args):
+    if cmd != "build":
+        return
+
     if not (boteco := discord.utils.get(ctx.guild.categories, name="boteco")):
         boteco = await ctx.guild.create_category("boteco")
 
     if not (new_table := discord.utils.get(boteco.channels, name="peca-uma-mesa")):
         new_table = await boteco.create_text_channel("peca-uma-mesa")
+
+    await ctx.message.add_reaction("✅")
+    await ctx.channel.send(
+        "Boteco criado! Você pode pedir uma mesa a partir de qualquer canal ou "
+        f"direto do {new_table.mention}. Por exemplo: `!mesa botecobot`."
+    )
 
 
 @bot.command()
