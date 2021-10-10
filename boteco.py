@@ -17,6 +17,9 @@ voice_channel_tracker = VoiceChannelTracker()
 @bot.event
 async def on_voice_state_update(member, before, after):
     channel = before.channel or after.channel
+    if not channel:
+        logger.warning(f"Couldn't get channel on state update. member={member}, before={before.channel}, after={after.channel}")
+        return
 
     if not channel.category or channel.category.name != "boteco":
         return
