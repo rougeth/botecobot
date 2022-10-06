@@ -1,1 +1,1 @@
-worker: python boteco.py
+worker: python boteco/main.py
