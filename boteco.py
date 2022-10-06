@@ -1,3 +1,4 @@
+import asyncio
 from datetime import datetime
 
 import discord
@@ -10,7 +11,7 @@ from tracker import VoiceChannelTracker
 
 DISCORD_TOKEN = config("DISCORD_TOKEN")
 
-bot = commands.Bot(command_prefix="!")
+bot = commands.Bot(intents=discord.Intents.default(), command_prefix="!")
 voice_channel_tracker = VoiceChannelTracker()
 
 
@@ -88,7 +89,13 @@ async def close_empty_tables():
     await voice_channel_tracker.delete_empty_channels()
 
 
-if __name__ == "__main__":
+async def main():
     logger.info("Opening Boteco!")
     close_empty_tables.start()
-    bot.run(DISCORD_TOKEN)
+    logger.info("Cleaning tables...")
+    async with bot:
+        await bot.start(DISCORD_TOKEN)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -16,7 +16,7 @@ python-slugify = "*"
 python-decouple = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.10.7"
 
 [pipenv]
 allow_prereleases = true
