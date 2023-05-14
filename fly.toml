@@ -1,0 +1,15 @@
+# fly.toml app configuration file generated for boteco on 2023-05-08T20:35:07+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "boteco"
+primary_region = "ams"
+
+[build]
+
+[http_service]
+  auto_start_machines = true
+  auto_stop_machines = true
+  force_https = true
+  internal_port = 8080

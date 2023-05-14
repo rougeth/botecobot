@@ -17,6 +17,6 @@ O **botecobot** removerá qualquer mesa (canal de voz no *#boteco*) que ficar va
 ```
 $ cp local.env .env
 # Atualize o arquivo .env com as informações necessárias.
-$ pipenv install
-$ pipenv run python boteco.py
+$ poetry  install
+$ poetry run python boteco/main.py
 ```
